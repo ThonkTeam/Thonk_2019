@@ -1,0 +1,1 @@
+As a user I want to be able to click on the logo on the main page and have it lead to the main tree.

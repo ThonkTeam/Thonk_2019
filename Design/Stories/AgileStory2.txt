@@ -1,0 +1,1 @@
+As a user I want to be able to search for a term on the mainpage and be lead to a specific node or list of similar nodes if needed.
