@@ -11,7 +11,7 @@ import javax.ws.rs.core.Application;
  *
  * @author fkasoft
  */
-@javax.ws.rs.ApplicationPath("webresources")
+@javax.ws.rs.ApplicationPath("thonk")
 public class ApplicationConfig extends Application {
 
     @Override
