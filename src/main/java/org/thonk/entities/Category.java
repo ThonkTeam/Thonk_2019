@@ -8,6 +8,7 @@ package org.thonk.entities;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.persistence.Id;
+import org.mongojack.DBRef;
 
 /**
  *
@@ -35,6 +36,9 @@ public class Category {
     public Long getParentCategory() {
         return this.parentCategory
     }
+    
+    public List<DBRef<CatRef, Long>> childCategories;
+    public List<DBRef<CatRef, Long>> sidewaysCategories;
     
     
 }
