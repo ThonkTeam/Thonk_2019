@@ -17,24 +17,8 @@ import javax.persistence.Id;
 public class Paper {
     
     @Id
-    private Long id;
-    private String url;
-    
-    public void setId (Long id) {
-        this.id = id;
-    }
-    
-    public Long getId() {
-        return this.id;
-    }
-    
-    public void setUrl(String url) {
-        this.url = url;
-    }
-    
-    public String getUrl() {
-        return this.url;
-    }
+    public Long id;
+    public String url;
     
 }
 
