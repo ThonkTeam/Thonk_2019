@@ -18,27 +18,9 @@ import org.mongojack.DBRef;
 public class Category {
     
     @Id
-    private Long id;
-    private Long parentCategory;
-    
-    public void setId(Long id) {
-        this.id = id;
-    }
-    
-    public Long getId() {
-        return this.id;
-    }
-    
-    public void setParentCategory(Long parentCategory) {
-        this.parentCategory = parentCategory;
-    }
-    
-    public Long getParentCategory() {
-        return this.parentCategory
-    }
-    
+    public Long id;
+    public Long parentCategory;
     public List<DBRef<Children, Long>> children;
     public List<DBRef<Siblings, Long>> siblings;
-    
     
 }
