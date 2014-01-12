@@ -1,0 +1,7 @@
+org/thonk/ejb/MongoBean.class
+org/thonk/entities/Siblings.class
+org/thonk/rs/MyResource.class
+org/thonk/entities/Children.class
+org/thonk/entities/Paper.class
+org/thonk/entities/User.class
+org/thonk/entities/Category.class

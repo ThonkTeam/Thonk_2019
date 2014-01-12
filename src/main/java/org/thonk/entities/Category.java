@@ -6,11 +6,13 @@
 
 package org.thonk.entities;
 
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.persistence.Id;
 
 import org.mongojack.DBRef;
-import org.mognojack.ObjectId;
+import org.mongojack.ObjectId;
 
 /**
  *

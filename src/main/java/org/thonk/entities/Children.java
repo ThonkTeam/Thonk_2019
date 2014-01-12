@@ -1,8 +1,9 @@
 package org.thonk.entities;
 
+import javax.persistence.Id;
 import org.mongojack.MongoCollection;
 
-@MongoCollection("children")
+@MongoCollection(name = "children")
 public class Children {
     @Id
     public Long id;
