@@ -21,9 +21,9 @@ public class ThonkAPI {
     @Produces(MediaType.TEXT_PLAIN)
     public String getIt() {
         String sent = "Any sensual bliss in the world,"
-	              +"any heavenly bliss,"
-                      +"isn't worth one sixteenth-sixteenth"
-                      +"of the bliss of the ending of craving.";
+	              +" any heavenly bliss,"
+                      +" isn't worth one sixteenth-sixteenth"
+                      +" of the bliss of the ending of craving.";
 	return sent; 
     }
 }
