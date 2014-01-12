@@ -10,12 +10,9 @@ import javax.ws.rs.core.MediaType;
 
 import org.thonk.ejb.MongoBean;
 
-/**
- * Root resource (exposed at "myresource" path)
- */
 @Stateless
 @Path("/")
-public class MyResource {
+public class ThonkAPI {
 
     @EJB
     MongoBean mongodb;
@@ -23,7 +20,10 @@ public class MyResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String getIt() {
-        return "fuck bitches get money";
+        String sent = "Any sensual bliss in the world,"
+	              +"any heavenly bliss,"
+                      +"isn't worth one sixteenth-sixteenth"
+                      +"of the bliss of the ending of craving.";
+	return sent; 
     }
-
 }
