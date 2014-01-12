@@ -8,7 +8,9 @@ package org.thonk.entities;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.persistence.Id;
+
 import org.mongojack.DBRef;
+import org.mognojack.ObjectId;
 
 /**
  *
@@ -20,7 +22,9 @@ public class Category {
     @Id
     public Long id;
     public Long parentCategory;
+    @ObjectId
     public List<DBRef<Children, Long>> children;
+    @ObjectId
     public List<DBRef<Siblings, Long>> siblings;
     
 }
