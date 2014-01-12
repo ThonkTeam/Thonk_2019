@@ -37,8 +37,8 @@ public class Category {
         return this.parentCategory
     }
     
-    public List<DBRef<ChildCatRef, Long>> childCategories;
-    public List<DBRef<SidewaysCatRef, Long>> sidewaysCategories;
+    public List<DBRef<Children, Long>> children;
+    public List<DBRef<Siblings, Long>> siblings;
     
     
 }
