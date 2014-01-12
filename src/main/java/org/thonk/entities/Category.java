@@ -28,5 +28,7 @@ public class Category {
     public List<DBRef<Children, Long>> children;
     @ObjectId
     public List<DBRef<Siblings, Long>> siblings;
+    @ObjectId
+    public List<DBRef<PaperRef, Long>> paperRefs;
     
 }

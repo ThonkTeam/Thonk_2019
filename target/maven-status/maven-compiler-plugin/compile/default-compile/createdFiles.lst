@@ -1,3 +1,4 @@
+org/thonk/entities/PaperRef.class
 org/thonk/rs/ThonkAPI.class
 org/thonk/ejb/MongoBean.class
 org/thonk/entities/Siblings.class
