@@ -35,10 +35,14 @@ Glassfish server files are located in
 ```bash
 /opt/glassfish4
 ```
-
-to start the server run 
+The glassfish server is now in init.d but
+to start the server manually run 
 ```bash
-/opt/glassfish4/bin/asadmin start-domain
+service glassfish start
+```
+and to stop it
+```bash
+service glassfish stop
 ```
 Server admin console is located at https://54.209.168.203:4848/
 for more information about using glassfish and deploying the 
