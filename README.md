@@ -4,8 +4,6 @@ Thonk
 A Comprehensive Interactive Guide to all Scientific Knowledge
 
 ssh access available a ubuntu@54.209.168.203
-server is being for now financially supported by ben
-so donations welcome! Ask Ben or Andy for the password.
 Glassfish admin user name is admin and the password
 is the same as the linux user's (ubuntu) password.
 The server runs all Fridays 6am to Sundays 11:59 PM.
@@ -20,18 +18,27 @@ cd ~/Thonk
 mvn deploy
 ```
 
-editing on the server is not advised but if necessary do:
+editing on the server is not advised but if necessary:
 ```bash
+git pull
 git add .
 git commit
 git push origin master
 ```
 
-The project package file is located at
+If you need to reset:
+```bash
+git reset --hard
+git clean -xdf
+```
+
+
+
+The project package file is located at:
 ```bash
 /home/ubuntu/Thonk/target/thonk.war
 ```
-Glassfish server files are located in
+Glassfish server files are located in:
 ```bash
 /opt/glassfish4
 ```
