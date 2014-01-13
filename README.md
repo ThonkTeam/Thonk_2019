@@ -8,6 +8,9 @@ server is being for now financially supported by ben
 so donations welcome! Ask Ben or Andy for the password.
 Glassfish admin user name is admin and the password
 is the same as the linux user's (ubuntu) password.
+The server runs all Fridays 6am to Sundays 11:59 PM.
+If you need to run the server at another time message
+Ben on facebook or at bhowden@razemedia.com.
 
 Project is located at ~/Thonk (/home/ubuntu/Thonk)
 to build the project run:
