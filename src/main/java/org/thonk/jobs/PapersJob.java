@@ -1,6 +1,5 @@
 package org.thonk.jobs;
 
-import 
 // this class pulls papers from various sources
 // and inserts themself in the DB
 public class PapersJob implements Runnable {
