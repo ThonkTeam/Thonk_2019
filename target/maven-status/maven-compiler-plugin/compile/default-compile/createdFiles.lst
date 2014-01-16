@@ -1,9 +1,2 @@
 org/thonk/entities/PaperRef.class
-org/thonk/ejb/MongoBean.class
-org/thonk/rs/ThonkAPI.class
 org/thonk/entities/Siblings.class
-org/thonk/jobs/PapersJob.class
-org/thonk/entities/Children.class
-org/thonk/entities/Paper.class
-org/thonk/entities/User.class
-org/thonk/entities/Category.class
