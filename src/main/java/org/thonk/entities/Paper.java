@@ -17,7 +17,7 @@ import javax.persistence.Id;
 public class Paper {
     
     @Id
-    public Long id;
+    public String id;
     public String url;
     
 }

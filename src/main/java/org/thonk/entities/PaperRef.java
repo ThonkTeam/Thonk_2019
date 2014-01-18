@@ -6,8 +6,8 @@ import org.mongojack.MongoCollection;
 @MongoCollection(name = "paperrefs")
 public class PaperRef {
     @Id
-    public Long id;
-    public Long categoryId;
-    public Long parentId;
+    public String id;
+    public String categoryId;
+    public String parentId;
 }
 

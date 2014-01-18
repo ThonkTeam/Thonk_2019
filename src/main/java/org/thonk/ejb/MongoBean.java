@@ -7,6 +7,9 @@ import java.net.UnknownHostException;
 import com.mongodb.MongoClient;
 import com.mongodb.DB;
 import com.mongodb.ServerAddress;
+import com.mongodb.DBCollection;
+
+import org.mongojack.JacksonDBCollection;
 
 import org.thonk.entities.*;
 
@@ -27,8 +30,11 @@ public class MongoBean {
         }
     }
 
-    public Category getCategoryById(Long id) {
-        return new Category();
+    public Category getCategoryById(String id) {
+        DBCollection dbCollection = db.getCollection("categories");
+        JacksonDBCollection<Category, String> coll = JacksonDBCollection.wrap(dbCollection, Category.class, String.class);
+        Category cat = coll.findOneById(id);
+        return cat;
     }
 
 }

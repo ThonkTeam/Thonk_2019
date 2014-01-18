@@ -22,13 +22,13 @@ import org.mongojack.ObjectId;
 public class Category {
     
     @Id
-    public Long id;
-    public Long parentCategory;
+    public String id;
+    public String parentCategory;
     @ObjectId
-    public List<DBRef<Children, Long>> children;
+    public List<DBRef<Children, String>> children;
     @ObjectId
-    public List<DBRef<Siblings, Long>> siblings;
+    public List<DBRef<Siblings, String>> siblings;
     @ObjectId
-    public List<DBRef<PaperRef, Long>> paperRefs;
+    public List<DBRef<PaperRef, String>> paperRefs;
     
 }

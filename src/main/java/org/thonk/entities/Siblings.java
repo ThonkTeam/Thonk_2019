@@ -6,8 +6,8 @@ import org.mongojack.MongoCollection;
 @MongoCollection(name = "siblings")
 public class Siblings {
     @Id
-    public Long id;
-    public Long categoryId;
+    public String id;
+    public String categoryId;
     public Float relationIndex;
 }
 
