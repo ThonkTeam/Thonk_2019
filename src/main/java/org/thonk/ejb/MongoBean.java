@@ -3,12 +3,16 @@ package org.thonk.ejb;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import java.net.UnknownHostException;
+import java.util.List;
+import java.util.ArrayList;
+import javax.annotation.PostConstruct;
 
 import com.mongodb.MongoClient;
 import com.mongodb.DB;
 import com.mongodb.ServerAddress;
 import com.mongodb.DBCollection;
 
+import org.mongojack.DBRef;
 import org.mongojack.JacksonDBCollection;
 
 import org.thonk.entities.*;
@@ -21,20 +25,53 @@ public class MongoBean {
     MongoClient mongo;
     DB db; 
 
-    public MongoBean() {
-        try {
-            mongo = new MongoClient(new ServerAddress("localhost", 27017));
-            db = mongo.getDB("thonk");
-        } catch(UnknownHostException ex)  {
-            log.severe(ex.getMessage());
-        }
+    @PostConstruct
+    void init() {
+          try {
+              mongo = new MongoClient(new ServerAddress("localhost", 27017));
+              db = mongo.getDB("thonk");
+          } catch(UnknownHostException ex)  {
+              log.severe(ex.getMessage());
+          }
     }
+
 
     public Category getCategoryById(String id) {
         DBCollection dbCollection = db.getCollection("categories");
-        JacksonDBCollection<Category, String> coll = JacksonDBCollection.wrap(dbCollection, Category.class, String.class);
+        JacksonDBCollection<Category, String> coll
+            = JacksonDBCollection.wrap(dbCollection, Category.class, String.class);
         Category cat = coll.findOneById(id);
         return cat;
+    }
+
+    public List<Category> getChildCategories(String catId) {
+        
+        List<Category> cats = new ArrayList<>();
+        DBCollection dbCollection = db.getCollection("categories");
+        JacksonDBCollection<Category, String> coll 
+            = JacksonDBCollection.wrap(dbCollection, Category.class, String.class);
+        Category cat = coll.findOneById(catId);
+        for (DBRef<Child, String> child : cat.children) {
+            Category chitlinCat = coll.findOneById(child.fetch().categoryId);
+            cats.add(chitlinCat);
+        }        
+        return cats;
+    
+    }
+
+    public List<Category> getSiblingCategories(String catId) {
+        
+        List<Category> cats = new ArrayList<>();
+        DBCollection dbCollection = db.getCollection("categories");
+        JacksonDBCollection<Category, String> coll 
+            = JacksonDBCollection.wrap(dbCollection, Category.class, String.class);             
+        Category cat = coll.findOneById(catId);
+        for (DBRef<Related, String> sibling : cat.related) {
+            Category sissyCat = coll.findOneById(sibling.fetch().categoryId);
+            cats.add(sissyCat);
+        }        
+        return cats;
+
     }
 
 }

@@ -25,9 +25,9 @@ public class Category {
     public String id;
     public String parentCategory;
     @ObjectId
-    public List<DBRef<Children, String>> children;
+    public List<DBRef<Child, String>> children;
     @ObjectId
-    public List<DBRef<Siblings, String>> siblings;
+    public List<DBRef<Related, String>> related;
     @ObjectId
     public List<DBRef<PaperRef, String>> paperRefs;
     
