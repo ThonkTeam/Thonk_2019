@@ -9,16 +9,12 @@ package org.thonk.entities;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.persistence.Id;
 
-/**
- *
- * @author BHowden
- */
-@XmlRootElement
+import org.mongojack.MongoCollection;
+
+@MongoCollection(name = "papers")
 public class Paper {
-    
     @Id
     public String id;
     public String url;
-    
 }
 

@@ -29,6 +29,6 @@ public class Category {
     @ObjectId
     public List<DBRef<Related, String>> related;
     @ObjectId
-    public List<DBRef<PaperRef, String>> paperRefs;
+    public List<DBRef<Paper, String>> papers;
     
 }

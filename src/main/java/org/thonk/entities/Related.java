@@ -8,6 +8,6 @@ public class Related {
     @Id
     public String id;
     public String categoryId;
-    public Double relationIndex;
+    public String relationIndex;
 }
 
