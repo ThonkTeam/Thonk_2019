@@ -45,7 +45,7 @@ public class MongoBean {
     }
 
     public List<Category> getChildCategories(String catId) {
-        
+
         List<Category> cats = new ArrayList<>();
         DBCollection dbCollection = db.getCollection("categories");
         JacksonDBCollection<Category, String> coll 
@@ -54,24 +54,26 @@ public class MongoBean {
         for (DBRef<Child, String> child : cat.children) {
             Category chitlinCat = coll.findOneById(child.fetch().categoryId);
             cats.add(chitlinCat);
-        }        
+        }
         return cats;
-    
+
     }
 
     public List<Category> getSiblingCategories(String catId) {
-        
+
         List<Category> cats = new ArrayList<>();
         DBCollection dbCollection = db.getCollection("categories");
-        JacksonDBCollection<Category, String> coll 
-            = JacksonDBCollection.wrap(dbCollection, Category.class, String.class);             
+        JacksonDBCollection<Category, String> coll
+            = JacksonDBCollection.wrap(dbCollection, Category.class, String.class);
         Category cat = coll.findOneById(catId);
-        for (DBRef<Related, String> sibling : cat.related) {
-            Category sissyCat = coll.findOneById(sibling.fetch().categoryId);
+        for (DBRef<Related, String> relative : cat.related) {
+            Category sissyCat = coll.findOneById(relative.fetch().categoryId);
             cats.add(sissyCat);
-        }        
-        return cats;
+        }
 
+        return cats;
     }
+
+
 
 }
