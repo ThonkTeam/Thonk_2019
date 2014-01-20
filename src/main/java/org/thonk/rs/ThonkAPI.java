@@ -15,7 +15,7 @@ import org.thonk.ejb.MongoBean;
 public class ThonkAPI {
 
     @EJB
-    MongoBean mongodb;
+    MongoBean mongo;
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
