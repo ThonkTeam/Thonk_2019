@@ -39,29 +39,36 @@ public class MongoBean {
 
 
     public Category readCategory(String id) {
+
         DBCollection dbCollection = db.getCollection("categories");
         JacksonDBCollection<Category, String> coll
             = JacksonDBCollection.wrap(dbCollection, Category.class, String.class);
         Category cat = coll.findOneById(id);
         return cat;
+
     }
 
     public String createCategory(Category cat) {
+
         DBCollection dbCollection = db.getCollection("categories");
         JacksonDBCollection<Category, String> coll
             = JacksonDBCollection.wrap(dbCollection, Category.class, String.class);
         WriteResult<Category, String> result = coll.insert(cat);
         return result.getSavedId();
+
     }
 
     public void updateParentCategory(String catId, String parentId) {
+
         DBCollection dbCollection = db.getCollection("categories");
         JacksonDBCollection<Category, String> coll 
             = JacksonDBCollection.wrap(dbCollection, Category.class, String.class);
         coll.updateById(catId, DBUpdate.set("parentCategory", parentId));
+
     }
 
     public void addChild(String catId, String childId) {
+
         DBCollection dbCollection = db.getCollection("categories");
         JacksonDBCollection<Category, String> coll 
             = JacksonDBCollection.wrap(dbCollection, Category.class, String.class);
@@ -69,9 +76,11 @@ public class MongoBean {
         child.categoryId = childId;
         child.parentId = catId;
         coll.updateById(catId, DBUpdate.inc("children").push("children", child));
+
     }
 
     public void addRelated(String catId, String relatedId, Double index) {
+
         DBCollection dbCollection = db.getCollection("categories");
         JacksonDBCollection<Category, String> coll 
             = JacksonDBCollection.wrap(dbCollection, Category.class, String.class);
@@ -79,15 +88,18 @@ public class MongoBean {
         relative.categoryId = catId;
         relative.relationIndex = index.toString();
         coll.updateById(catId, DBUpdate.inc("related").push("related", relative));
+
     }
 
     public void addPaper(String catId, String url) {
+
         DBCollection dbCollection = db.getCollection("categories");
         JacksonDBCollection<Category, String> coll 
             = JacksonDBCollection.wrap(dbCollection, Category.class, String.class);
         Paper paper  = new Paper();
         paper.url = url;
         coll.updateById(catId, DBUpdate.inc("papers").push("papers", paper));
+
     }
 
 
@@ -117,7 +129,6 @@ public class MongoBean {
             Category sissyCat = coll.findOneById(relative.fetch().categoryId);
             cats.add(sissyCat);
         }
-
         return cats;
     }
 
@@ -129,6 +140,15 @@ public class MongoBean {
         Category cat = coll.findOneById(catId);
         List<Paper> papers = coll.fetch(cat.papers);
         return papers;
+
+    }
+
+    public void deleteCategory(String id) {
+
+        DBCollection dbCollection = db.getCollection("categories");
+        JacksonDBCollection<Category, String> coll
+            = JacksonDBCollection.wrap(dbCollection, Category.class, String.class);
+        coll.removeById(id);
 
     }
 
