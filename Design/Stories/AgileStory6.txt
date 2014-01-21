@@ -1,0 +1,6 @@
+When I enter a node where one exists with the same name
+the platform will search for similar node submits and 
+a prompt shows up asking if whether or not their 
+submission is redundant.
+(phase 2)
+

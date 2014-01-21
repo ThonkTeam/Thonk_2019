@@ -1,2 +1,4 @@
 org/thonk/entities/Child.class
+org/thonk/rs/ThonkAPI.class
+org/thonk/jobs/PapersJob.class
 org/thonk/entities/Related.class
