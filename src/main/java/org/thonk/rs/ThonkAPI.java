@@ -1,5 +1,7 @@
 package org.thonk.rs;
 
+import javax.ejb.EJB;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -17,7 +19,7 @@ import org.thonk.entities.*;
 public class ThonkAPI {
 
     @EJB
-    MongoBean mongo;
+    MongoBean mongodb;
 
     @POST
     @Path("/category")

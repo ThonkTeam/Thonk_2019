@@ -15,7 +15,7 @@ to build the project run:
 
 ```bash
 cd ~/Thonk
-mvn deploy
+mvn install
 ```
 
 editing on the server is not advised but if necessary:
