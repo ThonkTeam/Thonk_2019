@@ -21,7 +21,7 @@ import org.thonk.entities.*;
 public class ThonkAPI {
 
     @EJB
-    MongoBean mongodb;
+    MongoBean mongo;
 
     @POST
     @Path("/category")
