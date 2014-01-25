@@ -1,8 +1,5 @@
 package org.thonk.rs;
 
-import javax.ejb.Stateless;
-import javax.ejb.EJB;
-
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -16,7 +13,6 @@ import javax.ws.rs.core.Response;
 import org.thonk.ejb.MongoBean;
 import org.thonk.entities.*;
 
-@Stateless
 @Path("/")
 public class ThonkAPI {
 
