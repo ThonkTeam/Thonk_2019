@@ -36,6 +36,7 @@ public class ThonkAPI {
     }
 
     @DELETE
+    @Path("/category")
     @Produces(MediaType.APPLICATION_JSON)
     public Response deleteCategory(@PathParam("id") String id){
         mongodb.deleteCategory(id);
