@@ -64,7 +64,7 @@ public class ThonkAPI {
     @POST
     @Path("/category/{id}/paper")
     public Response addPaperToCategory(@PathParam("id") String id, 
-                               @QueryParam("url") String url {
+                               @QueryParam("url") String url) {
        String urlD = URLDecoder.decode(url, "UTF-8");
        mongodb.addPaper(id, urlD);
        return Response.status(200).build();
