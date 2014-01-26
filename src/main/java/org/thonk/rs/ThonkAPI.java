@@ -56,7 +56,7 @@ public class ThonkAPI {
     public Response addRelatedToCategory(@PathParam("id") String id, 
                                @PathParam("relId") String relatedId,
                                @PathParam("relId") String index) {
-        Long indexL = Long.parse(index);
+        Long indexL = Long.parseLong(index);
         mongodb.addRelated(id, relatedId, indexL);
         return Response.status(200).build();
     }
