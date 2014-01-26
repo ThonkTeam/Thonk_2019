@@ -1,11 +1,13 @@
 package org.thonk.rs;
 
+import java.net.URLEncoder;
 import javax.ejb.EJB;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.DELETE;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -34,7 +36,41 @@ public class ThonkAPI {
     public Category readCategory(@PathParam("id") String id){
         return mongodb.readCategory(id);
     }
-
+    
+    @PUT
+    @Path("/category/{id}/parent")
+    public Response updateParentCategory(@PathParam("id") String id, String parentId) {
+        mongodb.updateParentCategory(id, parentId);
+        return Response.status(200).build();
+    }
+    
+    @POST
+    @Path("/category/{id}/child")
+    public Response addChild(@PathParam("id") String id, String childId) {
+        mongodb.addChild(id, childId);
+        return Response.status(200).build();
+    }
+    
+    @POST
+    @Path("/category/{id}/related/{relId}/{index}")
+    public Response addRelatedToCategory(@PathParam("id") String id, 
+                               @PathParam("relId") String relatedId,
+                               @PathParam("relId") String index) {
+        Long indexL = Long.parse(index);
+        mongodb.addRelated(id, relatedId, indexL);
+        return Response.status(200).build();
+    }
+    
+    @POST
+    @Path("/category/{id}/paper")
+    public Response addPaperToCategory(@PathParam("id") String id, 
+                               @QueryParam("url") String url {
+       String urlD = URLDecoder.decode(url, "UTF-8");
+       mongodb.addPaper(id, urlD);
+       return Response.status(200).build();
+    }
+                               
+                               
     @DELETE
     @Path("/category")
     @Produces(MediaType.APPLICATION_JSON)
