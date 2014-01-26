@@ -1,6 +1,7 @@
 package org.thonk.rs;
 
-import java.net.URLEncoder;
+import java.net.URLDecoder;
+import java.io.UnsupportedEncodingException;
 import javax.ejb.EJB;
 
 import javax.ws.rs.GET;
@@ -56,8 +57,7 @@ public class ThonkAPI {
     public Response addRelatedToCategory(@PathParam("id") String id, 
                                @PathParam("relId") String relatedId,
                                @PathParam("relId") String index) {
-        Long indexL = Long.parseLong(index);
-        mongodb.addRelated(id, relatedId, indexL);
+        mongodb.addRelated(id, relatedId, Double.parseDouble(index));
         return Response.status(200).build();
     }
     
@@ -65,9 +65,14 @@ public class ThonkAPI {
     @Path("/category/{id}/paper")
     public Response addPaperToCategory(@PathParam("id") String id, 
                                @QueryParam("url") String url) {
-       String urlD = URLDecoder.decode(url, "UTF-8");
-       mongodb.addPaper(id, urlD);
-       return Response.status(200).build();
+       try {
+           String urlD = URLDecoder.decode(url, "UTF-8");
+           mongodb.addPaper(id, urlD);
+           return Response.status(200).build();
+       } catch(UnsupportedEncodingException ex) {
+           return Response.status(500).entity(ex.getMessage()).build();
+       }
+
     }
                                
                                
