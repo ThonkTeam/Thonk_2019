@@ -38,8 +38,7 @@ public class ThonkAPI {
         Category cat = null;
         if((cat = mongodb.readCategory(id)) != null)
             Response.status(200).entity(cat);
-        else
-            return Response.status(404).build();
+        return Response.status(404).build();
             
     }
     
