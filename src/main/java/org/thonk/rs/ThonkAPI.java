@@ -35,19 +35,26 @@ public class ThonkAPI {
     @Path("/category/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Category readCategory(@PathParam("id") String id){
-        return mongodb.readCategory(id);
+        Category cat = null;
+        if(cat = mongodb.readCategory(id) != null)
+            return cat;
+        else
+            return Response.status(404).build();
+            
     }
     
     @PUT
-    @Path("/category/{id}/parent")
-    public Response updateParentCategory(@PathParam("id") String id, String parentId) {
+    @Path("/category/{id}/parent/{parentId}")
+    public Response updateParentCategory(@PathParam("id") String id, 
+                                         @PathParam("parentId")String parentId) {
         mongodb.updateParentCategory(id, parentId);
         return Response.status(200).build();
     }
     
     @POST
-    @Path("/category/{id}/child")
-    public Response addChild(@PathParam("id") String id, String childId) {
+    @Path("/category/{id}/child/{childId}")
+    public Response addChild(@PathParam("id") String id, 
+                             @PathParam("childId")String childId) {
         mongodb.addChild(id, childId);
         return Response.status(200).build();
     }
