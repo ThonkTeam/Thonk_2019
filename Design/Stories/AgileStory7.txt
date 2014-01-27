@@ -1,0 +1,6 @@
+As a user I want to be able to click on a node on the main tree and have the tree fade away and 
+new lines sprout from the node and lead to new smaller nodes that represent different theories within the field of science represented by the node I clicked on. 
+And if I click on a theory the previous nodes will disappear and new nodes will sprout which represent different aspects or topics pertaining to a theory. 
+For example if I click Biology an Evolution node should show up. 
+And if I lick on Evolution then Natural Selection or the Hardy Weinberg Principle should show up. 
+The size of the nodes should be determined by the number of citiations listed within the node.
