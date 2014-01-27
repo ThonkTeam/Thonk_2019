@@ -34,10 +34,10 @@ public class ThonkAPI {
     @GET
     @Path("/category/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Category readCategory(@PathParam("id") String id){
+    public Response readCategory(@PathParam("id") String id){
         Category cat = null;
         if((cat = mongodb.readCategory(id)) != null)
-            return cat;
+            Response.status(200).entity(cat);
         else
             return Response.status(404).build();
             
