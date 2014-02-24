@@ -1,0 +1,2 @@
+As a website user I want to be able to click a button on the main page that takes me to a page where I can register as a user for free.
+Once registered I want to be able to click on another button to sign in.

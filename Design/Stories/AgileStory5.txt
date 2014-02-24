@@ -1,4 +1,4 @@
 When I start a new node it 
-won't do it if there's already 
+won't create it if there's already 
 an exisiting mode with the same name. 
 (phase 1)

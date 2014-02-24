@@ -1,1 +1,1 @@
-As a user, I want to be able to submit a new node and have it reviewed by a moderator and added to the tree.
+As a user, I want to be able to submit a new node and have it added to the tree.

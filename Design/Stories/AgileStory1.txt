@@ -1,1 +1,3 @@
 As a user I want to be able to click on the logo on the main page and have it lead to the main tree.
+And from there click on a node representing a field of science on the tree and have the tree disappear, the page zoom in at that node and have all the new nodes appear representing laws and theories  and principles that make up that field.
+And from there I can click on a law or theory or principle and have all the previous nodes disappear while we zoom in on the selected node and have new nodes appear representing experiments and studies.

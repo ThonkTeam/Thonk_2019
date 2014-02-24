@@ -1,0 +1,4 @@
+As a user I want to be able to comment on an experiment or studies node.
+I want to be able to vote up or down for each comment and reply to each comment.
+User names will be shown for each comment.
+Comments can be reported to a moderator.
