@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Experimenting with Thonk</title>
+	<link rel="stylesheet" href="main.css">
+	<script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+<body>
+<script>
+/* these won't change color or size depending on the values,
+just setting it up for later layers */
+var jsonMainNodes = [
+	{ "x_axis": 960, "y_axis": 500, "radius": 90, "color": "green", "label": ""},
+	{ "x_axis": 850, "y_axis": 300, "radius": 70, "color": "green", "label": "Concepts"},
+	{ "x_axis": 1160, "y_axis": 450, "radius": 70, "color": "green", "label": "Questions"},
+	{ "x_axis": 750, "y_axis": 450, "radius": 70, "color": "green", "label": "Publications"},
+	{ "x_axis": 1050, "y_axis": 300, "radius": 70, "color": "green", "label": "Subbranches"}];
+
+
+//this next block is for scaling the svg container to the data
+
+//these will be updated to max x and y coordinates
+var max_x = 0;
+var max_y = 0;
+
+//loop through jsonMainNodes array
+for (var i = 0; i < jsonMainNodes.length; i++) {
+
+	var temp_x, temp_y;
+
+	//to get the furthest right hand point add the x-coordinate and the radius of the nodes
+	var temp_x = jsonMainNodes[i].x_axis + jsonMainNodes[i].radius;
+	//to get the furthest bottom point add the y-coordinate and the radius of the nodes
+	var temp_y = jsonMainNodes[i].y_axis + jsonMainNodes[i].radius;
+/*if the temp x-coordinate is bigger than max_x,
+make the max_x equal to the temp_x
+otherwise do nothing */
+	if (temp_x >= max_x) {
+		max_x = temp_x
+	}
+/*if the temp y-coordinate is bigger than max_y,
+make the max_y equal to the temp_y
+otherwise do nothing */
+	if (temp_y >= temp_y) {
+		max_y = temp_y
+	}
+};
+
+max_x;
+
+max_y;
+//Creating the svg container
+var svgContainer = d3.select('body').append("svg")
+									.attr("id", "chart")
+									.attr("width", max_x + 650)
+									.attr("height", max_y + 600);
+
+var nodeGroup = svgContainer.append("g");
+
+//appending the circles
+var circles = nodeGroup.selectAll("circle")
+							.data(jsonMainNodes)
+							.enter()
+							.append("circle");
+
+//defining the circles
+var circleAttributes = circles
+						.attr("cx", function (d) { return d.x_axis; })
+						.attr("cy", function (d) { return d.y_axis; })
+						.attr("r", function (d) { return d.radius; })
+						.attr("fill", function (d) { return d.color; })
+
+//appending the labels
+var text = svgContainer.selectAll("text")
+						.data(jsonMainNodes)
+						.enter()
+						.append("text");
+
+//defining the labels
+var labelAttributes = text
+				.attr("text-anchor", "middle")
+				.attr("x", function (d) { return d.x_axis; })
+				.attr("y", function (d) { return d.y_axis; })
+				.text(function (d) { return d.label; })
+				.attr("font-family", "sans-serif")
+				.attr("font-size", "60 px")
+				.attr("fill", "white")
+
+
+
+//this block is for scaling the data once we have some
+/*var initialScaleData = [];
+
+var newScaledData = [];
+var maxDataPoint = d3.max(initialScaleData);
+
+var linearScale = d3.scaleLinear()
+					.domain([0,maxDataPoint])
+					.range([0,100]);
+
+for (var i = 0; i < initialScaleData.length; i++) {
+	newScaledData[i] = linearScale(initialScaleData[i]);
+}
+*/
+
+</script>
+</body>
+</html>
